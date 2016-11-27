@@ -1,9 +1,21 @@
 import * as React from 'react'  
 import * as ReactDOM from 'react-dom'
 
-class App extends React.Component<any, any> {
+import { Inject, Injectable } from './Injector';
+import { PageService } from './pages/PageResource'; 
+
+interface AppProps extends Injectable {
+}
+
+@Inject(['title'])
+class App extends React.Component<AppProps, any> {
+
+  constructor(props) {
+    super(props);
+  }
+
   render() {
-    return(<h1>Now then</h1>)
+    return(<h1>Now then, {this.props.dependencies['title']}</h1>)
   }
 }
 

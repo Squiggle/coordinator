@@ -3,7 +3,7 @@ interface PageResource {
   slug: string;
 }
 
-class PageService {
+export class PageService {
 
   list(): PageResource[] {
     return [
