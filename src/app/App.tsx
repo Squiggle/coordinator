@@ -8,6 +8,8 @@ import Home from './pages/Home';
 import Page from './pages/Page';
 import NotFound from './NotFound';
 
+import './assets/css/App.scss';
+
 class AppContainer extends React.Component<any, any> {
   render() {
     return (
@@ -28,12 +30,11 @@ export default class App extends React.Component<any, any> {
 
   constructor(props) {
     super(props);
-    console.log(props);
   }
 
   render() {
     return(
-      <div className='app'>
+      <div id='app'>
         <Header />
         { this.props.children }
       </div>

@@ -21,11 +21,19 @@ class Page extends React.Component<PageProps, PageState> {
     };
   }
 
+  private componentWillReceiveProps(nextProps: PageProps) {
+    this.loadPageContent(nextProps.params.pageName);
+  }
+  
   private componentDidMount() {
-    let page = this.pageService.get(this.props.params.pageName);
+    this.loadPageContent(this.props.params.pageName);
+  }
+
+  private loadPageContent(pageName: string) {
+    let page = this.pageService.get(pageName);
     // load the page content
     if (page == null) {
-      console.log('Unable to find page ' + this.props.params.pageName);
+      console.error('Unable to find page ' + pageName);
       browserHistory.push('/notfound');
     }
     this.setState({

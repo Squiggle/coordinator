@@ -1,0 +1,50 @@
+#header {
+  .header-topNav {
+    ul {
+      list-style: none;
+      display: block;
+      margin: 0 auto;
+      padding: 0.5em;
+      text-align: center;
+      li {
+        display: inline-block;
+        padding: 0;
+        > a {
+          padding: 0.5em 1em;
+        }
+      }
+    }
+  }
+  .header-banner {
+    display: flex;
+    flex-flow: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    background-image: url('/assets/card_bg.jpg');
+    position: relative;
+    height: 680px;
+
+    .header-left {
+      transform: rotate(-20deg);
+      padding: 2em;
+    }
+    .header-right {
+      transform: rotate(20deg);
+      padding: 2em;
+    }
+
+    &:after {
+      content: "";
+      display: block;
+      margin: 0 auto;
+      
+      position: absolute;
+      top: 0; left: 0;
+      background-image: url('/assets/kata_bw.png');
+      width: 600px;
+      height: 400px;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+  }
+}

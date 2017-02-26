@@ -1,5 +1,6 @@
 var path = require('path')  
 var webpack = require('webpack')  
+var copyWebpackPlugin = require('copy-webpack-plugin');
 var BundleTracker = require('webpack-bundle-tracker')
 
 module.exports = {  
@@ -11,20 +12,24 @@ module.exports = {
     }
   },
   output: {
-    path: path.resolve('./bundles'),
-    publicPath: '/bundles/',  // Used by webpack-dev-server
+    path: path.resolve('./assets'),
+    publicPath: '/assets/',  // Used by webpack-dev-server
     // or '[name]-[hash].js' if you can dynamically load JS, so you don't have to always invalidate cache.
     filename: '[name].js'
   },
   devtool: 'source-map',  // for debugging
 
   plugins: [
-    new BundleTracker({filename: './webpack-stats.json'})
+    new BundleTracker({filename: './webpack-stats.json'}),
+    new copyWebpackPlugin([
+      { from: './src/app/assets/img' }
+    ])
   ],
 
   module: {
     loaders: [
-      { test: /\.tsx?$/, loader: 'ts-loader' }
+      { test: /\.tsx?$/, loader: 'ts-loader' },
+      { test: /\.scss?$/, loaders: ['style', 'css', 'sass']}
     ],
 
     preLoaders: [
