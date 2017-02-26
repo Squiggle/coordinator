@@ -25,7 +25,8 @@ class Page extends React.Component<PageProps, PageState> {
     let page = this.pageService.get(this.props.params.pageName);
     // load the page content
     if (page == null) {
-      browserHistory.push('notfound');
+      console.log('Unable to find page ' + this.props.params.pageName);
+      browserHistory.push('/notfound');
     }
     this.setState({
       page: page
@@ -34,10 +35,12 @@ class Page extends React.Component<PageProps, PageState> {
 
   render() {
     return (
+      this.state.page == null
+        ? <div className="page loading"></div>
+        :
       <div className="page">
         <h2>{ this.state.page.title }</h2>
-        <div className="page-content">
-          { this.state.page.content }
+        <div className="page-content" dangerouslySetInnerHTML={{__html: this.state.page.content }}>
         </div>
       </div>
     );
