@@ -7,9 +7,14 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "Launch Program",
-      "program": "${workspaceRoot}/--inline",
+      "name": "Webpack Dev Server",
+      "program": "${workspaceRoot}/node_modules/.bin/webpack-dev-server",
+      "args": ["--inline", "--content-base=.", "--history-api-fallback", "--debug=8088"],
       "cwd": "${workspaceRoot}",
+      "env": {
+        "NODE_ENV": "development"
+      },
+      "console": "internalConsole",
       "outFiles": [],
       "sourceMaps": true
     },
@@ -17,7 +22,7 @@
       "type": "node",
       "request": "attach",
       "name": "Attach to Process",
-      "port": 5858,
+      "port": 8088,
       "outFiles": [],
       "sourceMaps": true
     }

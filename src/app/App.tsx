@@ -1,23 +1,45 @@
 import * as React from 'react'  
 import * as ReactDOM from 'react-dom'
+import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 
-import { Inject, Injectable } from './Injector';
 import { PageService } from './pages/PageResource'; 
+import Header from './Header';
+import Home from './pages/Home';
+import Page from './pages/Page';
+import NotFound from './NotFound';
 
-interface AppProps extends Injectable {
+class AppContainer extends React.Component<any, any> {
+  render() {
+    return (
+      <div className='body'>
+        <Router history={browserHistory}>
+          <Route path='/' component={App}>
+            <IndexRoute component={Home} />
+            <Route path='/page/:pageName' component={Page} />
+          </Route>
+          <Route path='/notfound' component={NotFound} />
+        </Router> 
+      </div>
+    );
+  }
 }
 
-@Inject(['title'])
-class App extends React.Component<AppProps, any> {
+export default class App extends React.Component<any, any> {
 
   constructor(props) {
     super(props);
+    console.log(props);
   }
 
   render() {
-    return(<h1>Now then, {this.props.dependencies['title']}</h1>)
+    return(
+      <div className='app'>
+        <Header />
+        { this.props.children }
+      </div>
+    );
   }
 }
 
 // bootstrap
-ReactDOM.render(<App />, document.getElementById('content'))
+ReactDOM.render(<AppContainer />, document.getElementById('content'));

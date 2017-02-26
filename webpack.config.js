@@ -5,6 +5,11 @@ var BundleTracker = require('webpack-bundle-tracker')
 module.exports = {  
   context: __dirname,
   entry: { main: ['./src/app/App.tsx'] },
+  dev: {
+    historyApiFallback: {
+      main: './index.html'
+    }
+  },
   output: {
     path: path.resolve('./bundles'),
     publicPath: '/bundles/',  // Used by webpack-dev-server
