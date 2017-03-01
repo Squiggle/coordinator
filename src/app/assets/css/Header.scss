@@ -1,5 +1,28 @@
 #header {
+  background-image: url('/assets/card_bg.jpg');
+  padding-bottom: 20px;
+    
+  position: relative;
+
+  &::after {
+    content: '';
+    background-image: url('/assets/card_tear.png');
+    background-repeat: no-repeat;
+    background-size: 1280px 160px;
+    background-position: top;
+    position: absolute;
+    bottom: -42px;
+    left: 0px;
+    right: 0px;
+    height: 120px;
+  }
+
   .header-topNav {
+    position: absolute;
+    width: 100%;
+    z-index: 3;
+    bottom: 10px;
+
     ul {
       list-style: none;
       display: block;
@@ -20,31 +43,27 @@
     flex-flow: row;
     align-items: flex-start;
     justify-content: space-between;
-    background-image: url('/assets/card_bg.jpg');
     position: relative;
-    height: 680px;
+    height: 360px;
+
+    font-size: 28px;
+
+      background-image: url('/assets/kata_bw.png');
+      background-repeat: no-repeat;
+      background-position: top center;
+      background-size: 500px auto;
 
     .header-left {
       transform: rotate(-20deg);
-      padding: 2em;
+      padding: 2em 1em;
+      z-index: 1;
     }
     .header-right {
       transform: rotate(20deg);
-      padding: 2em;
+      padding: 2em 1em;
+      z-index: 1;
+      text-align: right;
     }
 
-    &:after {
-      content: "";
-      display: block;
-      margin: 0 auto;
-      
-      position: absolute;
-      top: 0; left: 0;
-      background-image: url('/assets/kata_bw.png');
-      width: 600px;
-      height: 400px;
-      background-repeat: no-repeat;
-      background-size: cover;
-    }
   }
 }

@@ -13,15 +13,13 @@ import './assets/css/App.scss';
 class AppContainer extends React.Component<any, any> {
   render() {
     return (
-      <div className='body'>
-        <Router history={browserHistory}>
-          <Route path='/' component={App}>
-            <IndexRoute component={Home} />
-            <Route path='/page/:pageName' component={Page} />
-          </Route>
-          <Route path='/notfound' component={NotFound} />
-        </Router> 
-      </div>
+      <Router history={browserHistory}>
+        <Route path='/' component={App}>
+          <IndexRoute component={Home} />
+          <Route path='/page/:pageName' component={Page} />
+        </Route>
+        <Route path='/notfound' component={NotFound} />
+      </Router> 
     );
   }
 }
@@ -36,11 +34,13 @@ export default class App extends React.Component<any, any> {
     return(
       <div id='app'>
         <Header />
-        { this.props.children }
+        <div id='content'>
+          { this.props.children }
+        </div>
       </div>
     );
   }
 }
 
 // bootstrap
-ReactDOM.render(<AppContainer />, document.getElementById('content'));
+ReactDOM.render(<AppContainer />, document.getElementById('react'));

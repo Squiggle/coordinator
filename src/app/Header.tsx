@@ -16,23 +16,23 @@ class Header extends React.Component<any, any> {
     const pages = this.pageService.list();
     return (
       <div id='header'>
-        <nav className='header-topNav'>
-          <ul>
-            <li key='home'><Link to='/'>Home</Link></li>
-            { pages.map(p => <li key={p.slug}><Link to={`/page/${p.slug}`}>{ p.title }</Link></li>) }
-          </ul>
-        </nav>
         <div className='header-banner'>
-          <div className='header-left'>
+          <div className='header-left chalk'>
             Helen and Jonnie
             <br />are getting married!
           </div>
-          <div className='header-right'>
+          <div className='header-right chalk'>
             Squirrelfest 2017
             <br />Escrick Park Estate, York
             <br />August 26th
           </div>
         </div>
+        <nav className='header-topNav chalk'>
+          <ul>
+            <li key='home'><Link to='/'>Home</Link></li>
+            { pages.map(p => <li key={p.slug}><Link to={`/page/${p.slug}`}>{ p.title }</Link></li>) }
+          </ul>
+        </nav>
       </div>
     );
   }

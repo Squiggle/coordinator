@@ -1,4 +1,12 @@
+html {
+  min-height: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+}
+
 body {
+  flex: 1 0 100%;
+
   background-color: black;
   margin: 0;
 
@@ -6,10 +14,49 @@ body {
   font-size: 18px;
   font-weight: 600;
 
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: stretch;
+
+  #react {
+    flex: 1 0 100%;
+    display: flex;
+    align-items: stretch;
+  }
+
   #app {
+    flex: 1 0 100%;
+
     max-width: 1280px;
-    margin: 0 auto;
     background-color: white;
     overflow-x: hidden;
+
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: stretch;
+
+    #content {
+      background: linear-gradient(rgba(255,255,255,0), rgba(255,255,255,1));
+      background-size: 100% 50px;
+      background-repeat: no-repeat;
+      z-index: 4;
+
+      padding: 0 2em;
+    }
+  }
+
+  .chalk {
+    font-family: 'Walter Turncoat', cursive;
+    color: white;
+    text-shadow:
+      -1px -1px 0 #000,
+      1px -1px 0 #000,
+      -1px 1px 0 #000,
+      1px 1px 0 #000;
+  }
+
+  a, a:visited, a:hover, a:active {
+    color: inherit;
+    text-decoration: none;
   }
 }
