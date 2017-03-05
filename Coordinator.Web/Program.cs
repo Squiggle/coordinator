@@ -1,11 +1,12 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Cors;
-using Microsoft.AspNetCore.Mvc.Formatters;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using System.IO;
 using Newtonsoft.Json.Serialization;
+using Microsoft.AspNetCore.Rewrite;
+using System.Threading.Tasks;
+using System;
 
 namespace Coordinator.Web
 {
@@ -51,13 +52,21 @@ namespace Coordinator.Web
                         .WithOrigins("http://localhost")
                         .AllowAnyHeader();
                 });
+
+                app.UseDeveloperExceptionPage();
             }
             // TODO: add production logging
             // loggerFactory.AddProvider(...)
 
             app.UseMvc();
+            
+            app.UseRewriter(new RewriteOptions()
+                .AddRewrite("^page/(.*)", "index.html", true)
+            );
+
             app.UseDefaultFiles();
             app.UseStaticFiles();
+
         }
     }
 }

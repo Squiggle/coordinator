@@ -25,6 +25,21 @@
       "port": 8088,
       "outFiles": [],
       "sourceMaps": true
+    },
+    {
+        "name": "Kestrel",
+        "type": "coreclr",
+        "request": "launch",
+        "preLaunchTask": "build",
+        "program": "${workspaceRoot}/Coordinator.Web/bin/Debug/netcoreapp1.1/Coordinator.Web.dll",
+        "args": [],
+        "cwd": "${workspaceRoot}/Coordinator.Web",
+        "externalConsole": false,
+        "stopAtEntry": false,
+        "internalConsoleOptions": "openOnSessionStart",
+        "env": {
+          "ASPNETCORE_ENVIRONMENT": "Development"
+        }
     }
   ]
 }
