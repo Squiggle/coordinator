@@ -30,15 +30,17 @@ class Page extends React.Component<PageProps, PageState> {
   }
 
   private loadPageContent(pageName: string) {
-    let page = this.pageService.get(pageName);
-    // load the page content
-    if (page == null) {
-      console.error('Unable to find page ' + pageName);
-      browserHistory.push('/notfound');
-    }
-    this.setState({
-      page: page
-    });
+    let page = this.pageService.get(pageName)
+      .then(resource => {
+        // load the page content
+        if (page == null) {
+          console.error('Unable to find page ' + pageName);
+          browserHistory.push('/notfound');
+        }
+        this.setState({
+          page: resource
+        });
+      });
   }
 
   render() {

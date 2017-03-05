@@ -1,12 +1,12 @@
 #header {
-  background-image: url('/assets/card_bg.jpg');
+  background-image: url('/assets/img/card_bg.jpg');
   padding-bottom: 20px;
     
   position: relative;
 
   &::after {
     content: '';
-    background-image: url('/assets/card_tear.png');
+    background-image: url('/assets/img/card_tear.png');
     background-repeat: no-repeat;
     background-size: 1280px 160px;
     background-position: top;
@@ -48,7 +48,7 @@
 
     font-size: 28px;
 
-      background-image: url('/assets/kata_bw.png');
+      background-image: url('/assets/img/kata_bw.png');
       background-repeat: no-repeat;
       background-position: top center;
       background-size: 500px auto;

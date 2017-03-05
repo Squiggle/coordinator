@@ -6,16 +6,28 @@ export interface PageResource {
 
 export class PageService {
 
-  list(): PageResource[] {
-    return [
-      { title: 'Welcome', slug: 'welcome', content: '<h3>Hello!</h3><p>This is some customisable content</p>' },
-      { title: 'Location', slug: 'location', content: '<h3>Location details</h3><p>In a place near a thing</p>' }
-    ]
+  list(): Promise<PageResource[]> {
+    return fetch('/api/v1/content')
+      .then(response => {
+        return response.text();
+      })
+      .then(body => {
+        return JSON.parse(body);
+      });
   }
 
-  get(slug: string): PageResource {
-    const item = this.list().filter((page) => page.slug == slug);
-    return item.length ? item[0] : null;
+  get(slug: string): Promise<PageResource> {
+    if (!slug) {
+      throw 'No page identifier provided';
+    }
+
+    return fetch(`/api/v1/content/${slug}`)
+      .then(response => {
+        return response.text();
+      })
+      .then(body => {
+        return JSON.parse(body);
+      });
   }
 }
 

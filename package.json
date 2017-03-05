@@ -2,12 +2,14 @@
   "name": "coordinator",
   "version": "1.0.0",
   "scripts": {
-    "start": "webpack-dev-server --inline --content-base . --history-api-fallback --debug=8088"
+    "start": "webpack-dev-server --inline --content-base . --history-api-fallback --debug=8088",
+    "build-watch": "webpack --watch"
   },
   "devDependencies": {
     "@types/react": "^0.14.50",
     "@types/react-dom": "^0.14.19",
     "@types/react-router": "^3.0.5",
+    "@types/whatwg-fetch": "0.0.33",
     "copy-webpack-plugin": "^4.0.1",
     "css-loader": "^0.26.2",
     "node-sass": "^4.5.0",
@@ -24,6 +26,7 @@
     "webpack-dev-server": "^1.16.2"
   },
   "dependencies": {
-    "react-router": "^3.0.0"
+    "react-router": "^3.0.0",
+    "whatwg-fetch": "^2.0.3"
   }
 }

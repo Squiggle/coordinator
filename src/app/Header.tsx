@@ -10,10 +10,17 @@ class Header extends React.Component<any, any> {
   constructor() {
     super();
     this.pageService = new PageService();
+    this.state = { pages: [] };
+  }
+
+  private componentDidMount() {
+    this.pageService.list()
+      .then(pages => {
+        this.setState({ pages: pages });
+      });
   }
 
   render() {
-    const pages = this.pageService.list();
     return (
       <div id='header'>
         <div className='header-banner'>
@@ -30,7 +37,7 @@ class Header extends React.Component<any, any> {
         <nav className='header-topNav chalk'>
           <ul>
             <li key='home'><Link to='/'>Home</Link></li>
-            { pages.map(p => <li key={p.slug}><Link to={`/page/${p.slug}`}>{ p.title }</Link></li>) }
+            { this.state.pages.map(p => <li key={p.slug}><Link to={`/page/${p.slug}`}>{ p.title }</Link></li>) }
           </ul>
         </nav>
       </div>

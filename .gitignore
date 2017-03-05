@@ -34,3 +34,8 @@ bower_components/
 
 # Webpack
 webpack-stats.json
+
+Coordinator.Web/bin
+Coordinator.Web/obj
+*.lock.json
+www/
