@@ -35,7 +35,12 @@ bower_components/
 # Webpack
 webpack-stats.json
 
+# dotnet core binaries
 Coordinator.Web/bin
 Coordinator.Web/obj
+# dotnet core lock file
 *.lock.json
+# web output
 www/
+# configuration
+config/

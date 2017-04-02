@@ -36,7 +36,6 @@ class Header extends React.Component<any, any> {
         </div>
         <nav className='header-topNav chalk'>
           <ul>
-            <li key='home'><Link to='/'>Home</Link></li>
             { this.state.pages.map(p => <li key={p.slug}><Link to={`/page/${p.slug}`}>{ p.title }</Link></li>) }
           </ul>
         </nav>

@@ -2,6 +2,7 @@ import * as React from 'react';
 import { browserHistory } from 'react-router';
 import { RouteParams } from '../Routes';
 import { PageResource, PageService } from './PageResource';
+import { Md5 } from 'ts-md5/dist/md5';
 
 interface PageProps extends RouteParams {
 }
@@ -44,16 +45,17 @@ class Page extends React.Component<PageProps, PageState> {
   }
 
   render() {
+    if (this.state.page == null) {
+      return <div className="page loading"></div>
+    }
+
+    const parts = this.state.page.parts;
     return (
-      this.state.page == null
-        ? <div className="page loading"></div>
-        :
       <div className="page">
         <h2>{ this.state.page.title }</h2>
-        <div className="page-content" dangerouslySetInnerHTML={{__html: this.state.page.content }}>
-        </div>
+        <div className="page-content" dangerouslySetInnerHTML={{ __html: parts['body'].markup }}></div>
       </div>
-    );
+      );
   }
 }
 

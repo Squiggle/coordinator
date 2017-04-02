@@ -1,7 +1,12 @@
 export interface PageResource {
   title: string;
   slug: string;
-  content: string;
+  parts: { [key: string]: PageContent };
+}
+
+export interface PageContent {
+  markup: string;
+  attachments: string[];
 }
 
 export class PageService {
@@ -23,6 +28,9 @@ export class PageService {
 
     return fetch(`/api/v1/content/${slug}`)
       .then(response => {
+        if (response.status >= 400) {
+          throw `No content for ${slug}`;
+        }
         return response.text();
       })
       .then(body => {

@@ -1,0 +1,23 @@
+{
+  "home": {
+    "slug": "home",
+    "title": "Welcome",
+    "templates": {
+      "body": "home.html"
+    }
+  },
+  "location": {
+    "slug": "location",
+    "title": "Location",
+    "templates": {
+      "body": "location.html"
+    }
+  },
+  "ceremony": {
+    "slug": "ceremony",
+    "title": "Ceremony",
+    "templates": {
+      "body": "ceremony.html"
+    }
+  }
+}

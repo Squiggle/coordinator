@@ -5,8 +5,7 @@ using Microsoft.Extensions.Logging;
 using System.IO;
 using Newtonsoft.Json.Serialization;
 using Microsoft.AspNetCore.Rewrite;
-using System.Threading.Tasks;
-using System;
+using Coordinator.Web.Services;
 
 namespace Coordinator.Web
 {
@@ -31,10 +30,11 @@ namespace Coordinator.Web
         {
             services.AddMvcCore()
                 .AddJsonFormatters(options => options.ContractResolver = new CamelCasePropertyNamesContractResolver());
-            // Uncomment the following line to add Web API services which makes it easier to port Web API 2 controllers.
-            // You will also need to add the Microsoft.AspNet.Mvc.WebApiCompatShim package to the 'dependencies' section of project.json.
-            // services.AddWebApiConventions();
-            
+
+            services.AddMemoryCache();
+   
+            // custom application dependencies
+            services.AddSingleton<CachedContentService>();
 
             services.AddCors();
         }
@@ -66,7 +66,6 @@ namespace Coordinator.Web
 
             app.UseDefaultFiles();
             app.UseStaticFiles();
-
         }
     }
 }

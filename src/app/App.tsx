@@ -1,10 +1,9 @@
 import * as React from 'react'  
 import * as ReactDOM from 'react-dom'
-import { Router, Route, IndexRoute, browserHistory } from 'react-router';
+import { Router, Route, IndexRedirect, browserHistory } from 'react-router';
 
-import { PageService } from './pages/PageResource'; 
+import { SiteService, SiteResource } from './SiteService';
 import Header from './Header';
-import Home from './pages/Home';
 import Page from './pages/Page';
 import NotFound from './NotFound';
 
@@ -15,25 +14,39 @@ class AppContainer extends React.Component<any, any> {
     return (
       <Router history={browserHistory}>
         <Route path='/' component={App}>
-          <IndexRoute component={Home} />
+          <IndexRedirect to='page/home' />
           <Route path='/page/:pageName' component={Page} />
         </Route>
         <Route path='/notfound' component={NotFound} />
-      </Router> 
+      </Router>
     );
   }
 }
 
 export default class App extends React.Component<any, any> {
 
+  private siteService = new SiteService();
+
   constructor(props) {
     super(props);
+    this.state = { site: null };
+  }
+
+  private componentDidMount() {
+    this.siteService.get()
+      .then((site: SiteResource) => {
+        this.setState({ site: site });
+      });
   }
 
   render() {
-    return(
+    if (!this.state.site) {
+      return <div id='app'>Loading...</div>
+    }
+
+    return (
       <div id='app'>
-        <Header />
+        <Header site={this.state.site} />
         <div id='content'>
           { this.props.children }
         </div>
