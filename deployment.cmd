@@ -1,2 +1,0 @@
-[config]
-echo "dotnet deployment"
