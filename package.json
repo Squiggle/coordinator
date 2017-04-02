@@ -2,8 +2,7 @@
   "name": "coordinator",
   "version": "1.0.0",
   "scripts": {
-    "start-webpack": "webpack-dev-server --inline --content-base . --history-api-fallback --debug=8088",
-    "start": "npm run build && cd Coordinator.Web && dotnet run",
+    "start-client": "webpack-dev-server --inline --content-base . --history-api-fallback --debug=8088",
     "build-watch": "webpack --watch",
     "build:client": "webpack",
     "build:server": "cd Coordinator.Web && dotnet build",
