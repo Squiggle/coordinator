@@ -10,6 +10,12 @@
       ]
     }
   },
+  "publishOptions": {
+    "include": [
+      "Content/*",
+      "www/*"
+    ]
+  },
   "scripts": {
     "prepublish": [
       "npm install",
