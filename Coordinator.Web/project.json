@@ -5,7 +5,8 @@
     "emitEntryPoint": true,
     "copyToOutput": {
       "include": [
-        "Content/*"
+        "Content/*",
+        "www/*"
       ]
     }
   },

@@ -16,7 +16,7 @@ namespace Coordinator.Web
             var host = new WebHostBuilder()
                 .UseKestrel()
                 .UseStartup<Startup>()
-                .UseContentRoot(Path.Combine(Directory.GetCurrentDirectory(), ".."))
+                .UseContentRoot(Directory.GetCurrentDirectory())
                 .UseWebRoot("www")
                 .Build();
     

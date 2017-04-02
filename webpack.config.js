@@ -15,8 +15,8 @@ module.exports = {
     }
   },
   output: {
-    path: path.resolve('./www'),
-    publicPath: '/www/',  // Used by webpack-dev-server
+    path: path.resolve('./Coordinator.Web/www'),
+    publicPath: '/Coordinator.Web/www/',  // Used by webpack-dev-server
     // or '[name]-[hash].js' if you can dynamically load JS, so you don't have to always invalidate cache.
     filename: '[name].js'
   },
