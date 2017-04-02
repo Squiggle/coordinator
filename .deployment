@@ -1,3 +1,2 @@
 [config]
-cd Coordinator.Web
-dotnet publish -o %DEPLOYMENT_TARGET%
+command = dotnet publish Coordinator.Web -o %DEPLOYMENT_TARGET%
