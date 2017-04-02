@@ -4,9 +4,9 @@
   "scripts": {
     "start-client": "webpack-dev-server --inline --content-base . --history-api-fallback --debug=8088",
     "build-watch": "webpack --watch",
-    "build:client": "webpack",
-    "build:server": "cd Coordinator.Web && dotnet build",
-    "build": "npm run build:client && npm run build:server"
+    "build-client": "webpack",
+    "build-server": "cd Coordinator.Web && dotnet build",
+    "build-all": "npm run build:client && npm run build:server"
   },
   "devDependencies": {
     "@types/react": "^0.14.50",
