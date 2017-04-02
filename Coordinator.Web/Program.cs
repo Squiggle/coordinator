@@ -17,9 +17,9 @@ namespace Coordinator.Web
                 .UseKestrel()
                 .UseStartup<Startup>()
                 .UseContentRoot(Directory.GetCurrentDirectory())
+                .UseIISIntegration()
                 .UseWebRoot("www")
                 .Build();
-    
             host.Run();
         }
     }
