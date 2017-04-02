@@ -1,2 +1,1 @@
-[config]
-npm run publish
+

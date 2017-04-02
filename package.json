@@ -8,7 +8,6 @@
     "build:client": "webpack",
     "build:server": "cd Coordinator.Web && dotnet build",
     "build": "npm run build:client && npm run build:server",
-    "publish": "npm run build:client && cd Coordinator.Web && dotnet publish -c Release"
   },
   "devDependencies": {
     "@types/react": "^0.14.50",
