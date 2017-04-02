@@ -44,3 +44,5 @@ Coordinator.Web/obj
 www/
 # configuration
 config/
+# do not share azure site deploy configuration
+azure-site-deploy.json

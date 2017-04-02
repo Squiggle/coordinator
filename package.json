@@ -8,9 +8,7 @@
     "build:client": "webpack",
     "build:server": "cd Coordinator.Web && dotnet build",
     "build": "npm run build:client && npm run build:server",
-    "publish": "cd Coordinator.Web && dotnet publish -c Release",
-    "pre-deploy": "npm run build:client && npm run publish",
-    "deploy": "cd Coordinator.Web && azure-site-deploy --site squiggle-coordinator"
+    "publish": "npm run build:client && cd Coordinator.Web && dotnet publish -c Release"
   },
   "devDependencies": {
     "@types/react": "^0.14.50",
@@ -20,7 +18,6 @@
     "config": "^1.25.1",
     "copy-webpack-plugin": "^4.0.1",
     "css-loader": "^0.26.2",
-    "documentdb": "^1.11.0",
     "node-sass": "^4.5.0",
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
